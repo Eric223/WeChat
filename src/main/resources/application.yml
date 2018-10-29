@@ -1,0 +1,23 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/wechat?characterEncoding=UTF-8&useSSL=false
+    username: root
+    password: 1234
+    initial-size: 5
+    max-active: 50
+    max-wait-millis: 60000
+  resources:
+    static-locations: classpath:static/
+  thymeleaf:
+    mode: HTML5
+    cache: true
+    encoding: UTF-8
+mybatis:
+    #和mybatis相关联的实体类路径
+    typeAliasesPackage: com.demo.pojo
+    mapperLocations: classpath:mapper/*.xml

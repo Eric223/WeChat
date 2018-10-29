@@ -1,0 +1,67 @@
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+}
+
+#main {
+    height: 100%;
+}
+
+#top {
+    height: 6%;
+}
+
+#middle {
+    height: 93%;
+    left: 0;
+    top: 0;
+    bottom: 0;
+}
+
+#bottom {
+
+}
+
+#left {
+    float: left;
+    width: 10%;
+    height: 100%;
+
+}
+
+#right {
+    width: 90%;
+    height: 100%;
+    border: 1px solid pink;
+    float: left;
+}
+
+.nav {
+    margin-outside: 0px;
+}
+
+li {
+    text-align: center;
+    margin: 0px;
+}
+
+#btnAdd {
+    position: fixed;
+    bottom: 20px;
+    width: 10%;
+    height: 4%;
+}
+
+#message {
+    display: none;
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    width: 150px;
+    height: 50px;
+    font-size: 50px;
+    border: 1px solid red;
+}

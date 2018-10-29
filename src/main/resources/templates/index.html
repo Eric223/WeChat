@@ -1,0 +1,81 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Good Thymes Virtual Grocery</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link th:href="@{ /bootstrap.min.css}" rel="stylesheet"/>
+    <link th:href="@{ /index.css}" rel="stylesheet"/>
+    <script th:src="@{/index.js}" type="text/javascript"></script>
+    <script th:src="@{/autocompleted.js}" type="text/javascript"></script>
+    <script th:src="@{/jquery.min.js}" type="text/javascript"></script>
+    <script th:src="@{/bootstrap.min.js}" type="text/javascript"></script>
+
+</head>
+
+<body>
+<div id="main">
+    <div id="top">
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="container-fluid">
+                <!-- head-->
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">WeChatRoom</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div id="middle">
+        <!--左侧导航栏-->
+        <div id="left">
+            <ul class="list-group" th:each="room:${rooms}">
+                <li class="list-group-item"  th:text="${room.name}" th:href="@{/websocket/openRoom/${room.id}}" onclick="openRoom()"></li>
+            </ul>
+            <button class="btn btn-primary btn-lg" id="btnAdd" data-toggle="modal" data-target="#myModal">add
+            </button>
+        </div>
+        <div id="message"></div>
+        <!-- 右侧展示栏-->
+        <div id="right">
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                 aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title" id="myModalLabel">for input room detail</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form class="form-horizontal" action="#" role="form">
+                                <div class="form-group">
+                                    <label for="title" class="col-sm-2 control-label">标题</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="title" placeholder="请输入标题"/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="detail" class="col-sm-2 control-label">简介</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="detail" placeholder="请输入简介"/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-10">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                        <button type="button" onclick="addRoom()" class="btn btn-default"
+                                                data-dismiss="modal">提交
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div><!-- /.modal-content -->
+                    </div>
+                </div>
+            </div>
+            <div th:include="room.html"></div>
+        </div>
+    </div>
+</div>
+</body>
+
+
+</html>
