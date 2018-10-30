@@ -16,8 +16,11 @@ public class RoomService {
     @Autowired
     private RoomDao roomDao;
 
-    public List<Room> getAllRoom(Integer uid){
-        return this.roomDao.getAllRoom(uid);
+    public List<Room> getAllRoom(){
+        return this.roomDao.getAllRoom();
     }
 
+    public void insert(Room room) {
+        this.roomDao.insertInto(room);
+    }
 }

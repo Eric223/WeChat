@@ -10,12 +10,16 @@
      $("#response").html("");
 }
 
-function connect(){
+function connect(id){
     var socket= new SockJS('/socket');
     stompClient=Stomp.over(socket);
     stompClient.connect({},function(frame) {
         //建立连接后回调
-        setConnected(true)
+        //setConnected(true)
+        socket.subscribe("/room/"+id,function(data){
+            sendMsg(id)
+        })
+
     })
 }
 
@@ -27,7 +31,7 @@ function disconnect(){
     console.log("Disconnected")
 }
 
-function sendMsg(){
+function sendMsg(id){
     var value=$("#message").val()
     stompClient.send("/request/send",{},value)
 }

@@ -6,6 +6,7 @@ import org.hibernate.validator.constraints.Length;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 /**
  * create by yangyin on 2018/10/26 22:42
@@ -20,9 +21,18 @@ public class User {
     private String username;
     private Integer Sex;
     private Integer age;
-
+    private List<Room> rooms;
     public User() {
     }
+
+    public List<Room> getRooms() {
+        return rooms;
+    }
+
+    public void setRooms(List<Room> rooms) {
+        this.rooms = rooms;
+    }
+
     public String getUid() {
         return uid;
     }

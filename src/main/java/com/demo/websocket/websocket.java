@@ -33,11 +33,7 @@ public class websocket {
         return "index";
     }
     @MessageMapping("/sendUser")
-    public void sendToUser(Principal principal,String body) {
-       String srcUser= principal.getName();
-       String[]args=body.split(",");
-       String desUser=args[0];
-       String message="【"+srcUser+"】"+args[1];
-       simpMessagingTemplate.convertAndSendToUser(desUser,"/queue/customer",message);
+    public void sendToUser(String body) {
+
     }
 }

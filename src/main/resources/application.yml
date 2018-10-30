@@ -15,7 +15,6 @@ spring:
     static-locations: classpath:static/
   thymeleaf:
     mode: HTML5
-    cache: true
     encoding: UTF-8
 mybatis:
     #和mybatis相关联的实体类路径

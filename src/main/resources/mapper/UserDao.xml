@@ -8,8 +8,17 @@
         <result property="age" column="age"></result>
         <result property="nickname" column="nickname"></result>
         <result property="sex" column="sex"></result>
+        <collection property="rooms" ofType="com.demo.pojo.Room">
+            <id column="id" property="id"></id>
+            <result column="name" property="name"></result>
+            <result column="detail" property="detail"></result>
+            <result column="date" property="date"></result>
+            <result column="cid" property="cid"></result>
+        </collection>
     </resultMap>
     <select id="selectAllUser" resultType="com.demo.pojo.User">
-        select * from user
+    </select>
+    <select id="selectUserRoom" parameterType="java.lang.String" resultMap="User">
+        select u.uid,r.id,r.name from user u right JOIN room r on u.uid = r.cid and u.username=#{username}
     </select>
 </mapper>

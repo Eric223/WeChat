@@ -33,32 +33,19 @@ public class IndexController {
     @Autowired
     private UserDao userDao;
 
-    @GetMapping("/index")
-    public ModelAndView index(ModelAndView model) {
+    @GetMapping("/openRoom/{id}")
+    public ModelAndView openRoom(ModelAndView model,@PathVariable("id") String id){
+        model.addObject("userId",id);
         model.setViewName("index");
         return model;
     }
 
-    @GetMapping(value = "/get/{id}")
-    public String addRoom(@PathVariable("id") String id) {
-        System.out.println("result: " + JSON.toJSONString(this.roomService.getAllRoom(2)));
+    @GetMapping(value = "/addRoom")
+    public String addRoom(Room room) {
+        this.roomService.insert(room);
         return "success";
     }
-//    @PostMapping(value = "/addRoom")
-//    public ModelAndView getAllUser(ModelAndView modelAndView, @RequestBody RoomDetail roomDetail) {
-//        modelAndView.addObject("message", "success");
-//        modelAndView.setViewName("index");
-//        System.out.println("json: " + JSON.toJSONString(roomDetail));
-//        return modelAndView;
-//    }
 
-    @RequestMapping("test")
-    public ModelAndView test(ModelAndView model) {
-        User user = new User();
-        user.setUsername("Arthur");
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.addObject("user", user);
-        modelAndView.setViewName("index");
-        return modelAndView;
-    }
+
+
 }

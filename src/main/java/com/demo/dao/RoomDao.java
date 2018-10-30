@@ -9,5 +9,7 @@ import java.util.List;
 @Mapper
 public interface RoomDao {
 
-    List<Room> getAllRoom(@Param("uid") Integer uid);
+    List<Room> getAllRoom();
+
+    void insertInto(@Param("room") Room room);
 }

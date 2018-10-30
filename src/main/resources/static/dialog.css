@@ -1,0 +1,33 @@
+#ShowRoom{
+    width: 70%;
+    border: 1px solid darkgray;
+    height: 80%;
+    display: none;
+    border: 3px solid;
+    border-radius: 2px;
+    background-color: #a8d7ff;
+    left: 2%;
+}
+#DialogLeft{
+    width: 75%;
+    height: 100%;
+    border-radius: 5px;
+    border: 1px solid whitesmoke;
+}
+#DialogRight{
+    width: 24%;
+    height: 100%;
+    background-color: whitesmoke;
+}
+#RoomDialog{
+    height: 75%;
+    border: 1px solid yellow;
+    background-color: whitesmoke;
+}
+
+#InputDialog{
+    height: 25%;
+    width: 100%;
+    border: 1px solid palegreen;
+    background-color: whitesmoke;
+}

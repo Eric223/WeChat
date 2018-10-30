@@ -8,7 +8,10 @@
         <result column="date" property="date"></result>
         <result column="cid" property="cid"></result>
     </resultMap>
-    <select id="getAllRoom" parameterType="java.lang.Integer" resultType="com.demo.pojo.Room">
-        select r.* from room r where r.cid=#{uid}
+    <select id="getAllRoom"  resultType="com.demo.pojo.Room">
+        select r.* from room r
     </select>
+    <insert id="insertInto" parameterType="room">
+        insert into room(id,name,detail,date,cid) VALUES (room.id,room.name,room.detail,room.date,room.cid);
+    </insert>
 </mapper>
